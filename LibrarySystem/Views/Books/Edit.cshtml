@@ -1,0 +1,68 @@
+
+@model LibrarySystem.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Book</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Author"></label>
+                <input asp-for="Author" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ISBN"></label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PublishedYear"></label>
+                <input asp-for="PublishedYear" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CategoryId">Category</label>
+                <select asp-for="CategoryId"
+                        class="form-control"
+                        asp-items="ViewBag.CategoryId">
+                    <option value="">-- Select Category --</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

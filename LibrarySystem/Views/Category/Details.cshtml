@@ -1,0 +1,26 @@
+﻿@model LibrarySystem.Models.Category
+
+<h2>Category Details</h2>
+
+<div class="card p-3">
+
+    <p>
+        <strong>Id:</strong> @Model.Id
+    </p>
+
+    <p>
+        <strong>Name:</strong> @Model.Name
+    </p>
+
+    <p>
+        <strong>Description:</strong> @Model.Description
+    </p>
+
+</div>
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-warning mt-3">Edit</a>
+
+<a asp-action="Index"
+   class="btn btn-secondary mt-3">Back</a>
