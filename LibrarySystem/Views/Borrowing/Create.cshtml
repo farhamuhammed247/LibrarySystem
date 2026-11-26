@@ -1,0 +1,96 @@
+﻿@model LibrarySystem.Models.Borrowing
+
+@{
+    ViewData["Title"] = "Create Borrowing";
+}
+
+<h1>Create Borrowing</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BookId" class="control-label">
+                    Book
+                </label>
+
+                <select asp-for="BookId"
+                        asp-items="ViewBag.BookId"
+                        class="form-control">
+                    <option value="">-- Select Book --</option>
+                </select>
+
+                <span asp-validation-for="BookId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="MemberId" class="control-label">
+                    Member
+                </label>
+
+                <select asp-for="MemberId"
+                        asp-items="ViewBag.MemberId"
+                        class="form-control">
+                    <option value="">-- Select Member --</option>
+                </select>
+
+                <span asp-validation-for="MemberId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BorrowingDate"></label>
+
+                <input asp-for="BorrowingDate"
+                       type="date"
+                       class="form-control" />
+
+                <span asp-validation-for="BorrowingDate"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DueDate"></label>
+
+                <input asp-for="DueDate"
+                       type="date"
+                       class="form-control" />
+
+                <span asp-validation-for="DueDate"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ReturnDate"></label>
+
+                <input asp-for="ReturnDate"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

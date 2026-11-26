@@ -1,0 +1,55 @@
+﻿@model LibrarySystem.Models.Member
+
+@{
+    ViewData["Title"] = "Member Details";
+}
+
+<h1>Member Details</h1>
+
+<hr />
+
+<div class="card">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">Id</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Full Name</dt>
+            <dd class="col-sm-9">@Model.FullName</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Phone Number</dt>
+            <dd class="col-sm-9">
+                @(Model.PhoneNumber ?? "Not Available")
+            </dd>
+
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">
+                @(Model.Address ?? "Not Available")
+            </dd>
+
+            <dt class="col-sm-3">Membership Date</dt>
+            <dd class="col-sm-9">
+                @(Model.MemberShipDate?.ToString("yyyy-MM-dd")
+                    ?? "Not Available")
+            </dd>
+
+            <dt class="col-sm-3">Borrowings Count</dt>
+            <dd class="col-sm-9">
+                @(Model.Borrowings?.Count ?? 0)
+            </dd>
+
+        </dl>
+
+        <a asp-action="Edit" asp-route-id="@Model.Id"
+           class="btn btn-warning">Edit</a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">Back to List</a>
+
+    </div>
+</div>
